@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f7f4;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-jp: var(--font-klee-one), "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* Sentence study tab */
+.sentence-study ruby rt {
+  font-size: 0.5em;
+  color: #71717a;
+  letter-spacing: 0;
+}
+
+.sentence-study[data-furigana="hide"] ruby rt {
+  visibility: hidden;
+}
+
+.sentence-study .sentence-row + .sentence-row {
+  border-top: 1px solid #e4e4e7;
+}
+
+.sentence-study .sentence-row {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 120px;
+}
+
+.sentence-study .sentence-target {
+  color: #047857;
+  font-weight: 600;
+  border-bottom: 2px solid rgb(4 120 87 / 0.4);
+}
+
+.sentence-study .blank-field.is-blank,
+.sentence-study .sentence-target.is-blank {
+  color: transparent;
+  background: #f4f4f5;
+  border: 1.5px dashed #a1a1aa;
+  border-radius: 6px;
+  user-select: none;
+}
+
+.sentence-study .blank-field.is-blank *,
+.sentence-study .sentence-target.is-blank * {
+  color: transparent !important;
+  border-color: transparent !important;
+}
+
+.sentence-study .sentence-target.is-blank {
+  display: inline-block;
+  min-width: 3em;
+  line-height: 1.6;
+}
+
+.sentence-study .blank-field.is-revealed,
+.sentence-study .sentence-target.is-revealed {
+  border-radius: 5px;
+  box-shadow: 0 0 0 1.5px #10b981;
+}
